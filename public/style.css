@@ -32,6 +32,7 @@ body {
   align-items: center;
   /* padding: .3rem .7rem; */
   margin: 1rem 0;
+  /* border: solid red; */
 }
 
 .header li {
@@ -45,10 +46,17 @@ body {
 
 .header-left {
   color: #eee;
+  /* border: solid green; */
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .date {
   /* border: solid blue; */
+  width: 95%;
   padding: 0 .9rem 0 0;
   display: flex;
   justify-content: space-between;
@@ -63,17 +71,13 @@ body {
   font-size: 1.2rem;
 }
 
-.tasks li {
-  list-style: none;
-}
-
-
 /* SEARCH SECTION */
 
-/* .search { */
-/*   border: solid red; */
-/**/
-/* } */
+.search {
+  /* border: solid red; */
+  /* background: blue; */
+  display: flex
+}
 
 .search-bar {
   padding: .6rem;
@@ -85,7 +89,179 @@ body {
   color: var(--text-main);
 }
 
-.search-icon {
+.search-icon-container {
+  width: 14%;
+  /* height: 40px; */
   background: var(--text-secondary);
   padding: .35rem;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.search-icon {
+  display: block;
+  width: 45%;
+  height: 75%;
+  border-radius: 50%;
+  position: relative;
+  border: solid white 2px;
+  margin-left: .5rem;
+  /* background: green; */
+}
+
+.search-icon::before {
+  content: "";
+  position: absolute;
+  display: block;
+  background: white;
+  width: .8rem;
+  height: 2px;
+  transform: translate(12px,14px) rotate(35deg);
+}
+
+
+/* TASK SECTION */
+
+.tasks {
+  /* border:solid gray 1px; */
+  height: 75vh;
+
+}
+
+.todays-tasks {
+  border: solid var(--text-secondary) 1px;
+  background: rgba(256,69,0,.4);
+  height: 10%;
+  display: flex;
+  margin-top: 2rem;
+  padding: 0 .6rem;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.all-tasks {
+  height: 82%;
+  scrollbar-width: none;
+  /* border: solid green; */
+  overflow-y: scroll;
+  margin-top: 2rem;
+}
+
+.task-closed {
+  list-style: none;
+  height: 15%;
+  /* border: solid red; */
+  background: var(--secondary-bg);
+  margin-top: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  padding: 1rem;
+  position: relative;
+}
+
+.task-closed::before,
+.task-open::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  cursor: pointer;
+  /* background: green; */
+}
+
+.task-open {
+  /* border: solid var(--text-secondary) 1px; */
+  height: 30%;
+  margin-top: 2rem;
+  background: var(--secondary-bg);
+  transition: 0.2s ease;
+  padding: 1rem;
+  position: relative;
+}
+
+
+.task-heading {
+  /* border: solid red; */
+  overflow: hidden;
+  font-size: .9rem;
+  width: 70%;
+  height: 1.1rem;
+}
+
+/* THE LITTLE BARS THAT CHANGE COLOR AND LENGTH */
+.span-closed {
+  height: .3rem;
+  width: 3rem;
+  display: block;
+  /* border: solid red 1px; */
+  background: var(--text-secondary);
+  border-radius: 26px;
+  margin-top: .2rem;
+  transition: 0.3s ease;
+}
+.span-open {
+  width: 4rem;
+  height: .3rem;
+  display: block;
+  background: #415057;
+  border-radius: 26px;
+  transition: 0.3s ease;
+  margin-top: .2rem;
+}
+/* THE LITTLE BARS THAT CHANGE COLOR AND LENGTH */
+
+.div-closed {
+  background: rgba(256,69,0,0.3);
+  border: solid rgba(256,69,0,.4) 1px;
+  height: 1rem;
+  width: 90%;
+  transition: 0.6s ease;
+  margin-top: .4rem;
+}
+
+.div-open {
+  height: 75%;
+  background: rgba(256,69,0,0.2);
+  border: solid orangered 1px;
+  transition: 0.6s ease;
+  width: 90%;
+  margin-top: .4rem;
+}
+
+/* CHECKBOX SECTION */
+
+.checkbox-unselected {
+  border: solid #666 1px; 
+  position: absolute;
+  right: 13px;
+  bottom: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+} 
+
+.checkbox-selected {
+  border: solid #666 1px; 
+  position: absolute;
+  right: 13px;
+  bottom: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-selected::before {
+  content: "";
+  position: absolute;
+  width: 68%;
+  height: 68%;
+  background: var(--text-secondary);
+  align-self: center;
 }

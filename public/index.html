@@ -12,8 +12,8 @@
       <div class="header-left">
       <h1 class="main-greeting">Hi, dustparticle</h1>
         <div class="date">
-          <span>16 May 2024</span>
-          <span>00:36</span>
+          <span class="today"></span>
+          <span class="time"></span>
         </div>
       </div>
 
@@ -28,15 +28,19 @@
     <form class="search">
       <input type="search" class="search-bar" name="seach" value="" placeholder="Search your Lists">
     <!-- No need for a button because the form will search as I type. -->
-      <span type="button" class="search-icon">icon</span>
+      <div type="button" class="search-icon-container">
+        <span class="search-icon"></span>
+      </div>
     </form>
 
-    <!-- <div class="tasks"> -->
-    <!--   Today's tasks   -->
-    <!--   <ul> -->
-    <!--     <li>task one</li> -->
-    <!--   </ul> -->
-    <!-- </div> -->
+    <div class="tasks">
+      <div class="todays-tasks">
+        <h2 class="todays-heading">Today's Tasks</h2>
+      </div>
+      <ul class="all-tasks">
+      </ul>
+    </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="/browser_app.js"></script>
 </html>
