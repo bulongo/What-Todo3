@@ -27,18 +27,6 @@ const editTask = asyncWrapper(async (req, res) => {
     new: true,
     runValidators: true
   })
-  res.status(201).json({ task })
-})
-
-
-const updateTask = asyncWrapper(async (req, res) => {
-  // res.json({ id: req.params.id })
-  // console.log(req.body)
-  const { id: taskID } = req.params
-  const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
-    new: true,
-    runValidators: true
-  })
   if (!task) {
     return next(createCustomError(`No task with id: ${taskID}`, 404))
   }
