@@ -28,7 +28,7 @@ const editTask = asyncWrapper(async (req, res) => {
     runValidators: true
   })
   if (!task) {
-    return next(createCustomError(`No task with id: ${taskID}`, 404))
+    return res.status(404).json(`No task with id: ${taskID}`)
   }
   res.status(200).json({ task })
 })

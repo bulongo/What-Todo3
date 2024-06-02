@@ -1,11 +1,13 @@
 :root {
   /* main colors */
   --bg: #030F19;
-  --secondary-bg:#010914;
+  --secondary-bg: #010914;
   --text-main: #eee;
   --text-secondary: #FE5F55;
+  --text-secondary-lightest: rgba(254, 95, 85, 0.2);
+  --text-secondary-light: rgba(254, 95, 85, 0.5);
   --find: solid 1px red;
-  
+
   /* main fonts */
   --main-font: Arial, Helvetica, sans-serif;
 }
@@ -21,6 +23,7 @@ body {
   background: var(--bg);
   color: var(--text-main);
   padding: 0 1rem;
+  overflow-y: hidden;
 }
 
 /* HEADER SECTION */
@@ -67,7 +70,7 @@ body {
   font-size: .8rem;
 }
 
-.main-greeting{
+.main-greeting {
   font-size: 1.2rem;
 }
 
@@ -117,21 +120,20 @@ body {
   background: white;
   width: .8rem;
   height: 2px;
-  transform: translate(12px,14px) rotate(35deg);
+  transform: translate(12px, 14px) rotate(35deg);
 }
 
 
 /* TASK SECTION */
 
 .tasks {
-  /* border:solid gray 1px; */
+  border: solid rgba(0, 0, 0, 0.1) 1px;
   height: 75vh;
-
 }
 
 .todays-tasks {
   border: solid var(--text-secondary) 1px;
-  background: rgba(256,69,0,.4);
+  background: rgba(256, 69, 0, .4);
   height: 10%;
   display: flex;
   margin-top: 2rem;
@@ -141,7 +143,7 @@ body {
 }
 
 .all-tasks {
-  height: 82%;
+  /* height: 82%; */
   scrollbar-width: none;
   /* border: solid green; */
   overflow-y: scroll;
@@ -150,16 +152,30 @@ body {
 
 .task-closed {
   list-style: none;
-  height: 15%;
-  /* border: solid red; */
+  height: 7rem;
+  border: solid var(--text-secondary-lightest) 1px;
   background: var(--secondary-bg);
   margin-top: 2rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.6s ease;
   padding: 1rem;
   position: relative;
 }
+
+.task-open {
+  list-style: none;
+  height: 10rem;
+  border: solid var(--text-secondary-light) 1px;
+  background: var(--secondary-bg);
+  margin-top: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.6s ease;
+  padding: 1rem;
+  position: relative;
+}
+
 
 .task-closed::before,
 .task-open::before {
@@ -171,18 +187,8 @@ body {
   top: 0;
   cursor: pointer;
   /* background: green; */
+  transition: 0.6s ease;
 }
-
-.task-open {
-  /* border: solid var(--text-secondary) 1px; */
-  height: 30%;
-  margin-top: 2rem;
-  background: var(--secondary-bg);
-  transition: 0.2s ease;
-  padding: 1rem;
-  position: relative;
-}
-
 
 .task-heading {
   /* border: solid red; */
@@ -203,6 +209,7 @@ body {
   margin-top: .2rem;
   transition: 0.3s ease;
 }
+
 .span-open {
   width: 4rem;
   height: .3rem;
@@ -212,40 +219,47 @@ body {
   transition: 0.3s ease;
   margin-top: .2rem;
 }
+
 /* THE LITTLE BARS THAT CHANGE COLOR AND LENGTH */
 
 .div-closed {
-  background: rgba(256,69,0,0.3);
-  border: solid rgba(256,69,0,.4) 1px;
-  height: 1rem;
+  background: rgba(256, 69, 0, 0.3);
+  border: solid rgba(256, 69, 0, .4) 1px;
+  height: 1.5rem;
+  padding-top: .2rem;
+  padding-left: .2rem;
   width: 90%;
   transition: 0.6s ease;
   margin-top: .4rem;
+  overflow-y: hidden;
 }
 
 .div-open {
   height: 75%;
-  background: rgba(256,69,0,0.2);
+  background: rgba(256, 69, 0, 0.2);
   border: solid orangered 1px;
   transition: 0.6s ease;
   width: 90%;
+  overflow-y: scroll;
+  padding-top: .2rem;
+  padding-left: .2rem;
   margin-top: .4rem;
 }
 
 /* CHECKBOX SECTION */
 
 .checkbox-unselected {
-  border: solid #666 1px; 
+  border: solid #666 1px;
   position: absolute;
   right: 13px;
   bottom: 8px;
   width: 20px;
   height: 20px;
   border-radius: 2px;
-} 
+}
 
 .checkbox-selected {
-  border: solid #666 1px; 
+  border: solid #666 1px;
   position: absolute;
   right: 13px;
   bottom: 8px;
@@ -264,4 +278,30 @@ body {
   height: 68%;
   background: var(--text-secondary);
   align-self: center;
+}
+
+
+/* FOOTER SECTION */
+.footer {
+  /* border: solid blue; */
+  text-align: center;
+  height: 5rem;
+}
+
+.add-btn {
+  border: none;
+  background: var(--text-secondary);
+  color: white;
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.add-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0px 0px 7px 1px rgba(256, 69, 0, 0.9);
+  transition: 0.4s ease;
 }
