@@ -30,7 +30,7 @@ const interval = setInterval(() => {
   clearInterval(interval)
 }, 1000);
 
-const handleTaskOpen = (e) => {
+const handleTaskState = (e) => {
   if (e.target.className === "task-closed") {
     e.target.className = "task-open"
     e.target.children[1].className = "span-open"
@@ -57,6 +57,7 @@ const showTasks = (data) => {
     //  e.g. Task four is actually five in the list of tasks.
     //
 
+
     const li = document.createElement("li")
     const h2 = document.createElement("h2")
     const span = document.createElement("span")
@@ -67,7 +68,7 @@ const showTasks = (data) => {
     h2.className = "task-heading"
     span.className = "span-closed"
     div.className = "div-closed"
-    div.addEventListener("click", handleClick)
+    div.addEventListener("click", handleTaskState)
     checkBox.className = "checkbox-unselected"
     checkBox.addEventListener("click", handleCheckBoxClick)
 
@@ -75,7 +76,7 @@ const showTasks = (data) => {
     h2.innerText = task.title
     div.innerText = task.description
     li.className = "task-closed"
-    li.addEventListener("click", handleTaskOpen)
+    li.addEventListener("click", handleTaskState)
     li.appendChild(h2)
     li.appendChild(span)
     li.appendChild(div)
@@ -88,4 +89,4 @@ const addNewTask = (e) => {
   console.log(e.target.innerText)
 }
 
-addTaskBtn.addEventListener("click",addNewTask)
+addTaskBtn.addEventListener("click", addNewTask)
