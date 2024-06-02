@@ -1,3 +1,6 @@
+// TODOS
+// make one task shrink when another one is clicked but avoid shifting content
+
 const ul = document.querySelector(".all-tasks")
 const dateToday = document.querySelector(".today")
 const timeNow = document.querySelector(".time")
@@ -11,8 +14,6 @@ const getData = async () => {
 }
 
 getData()
-
-
 
 const getDateTime = () => {
   const day = new Date()
@@ -29,7 +30,7 @@ const interval = setInterval(() => {
   clearInterval(interval)
 }, 1000);
 
-const handleClick = (e) => {
+const handleTaskOpen = (e) => {
   if (e.target.className === "task-closed") {
     e.target.className = "task-open"
     e.target.children[1].className = "span-open"
@@ -74,7 +75,7 @@ const showTasks = (data) => {
     h2.innerText = task.title
     div.innerText = task.description
     li.className = "task-closed"
-    li.addEventListener("click", handleClick)
+    li.addEventListener("click", handleTaskOpen)
     li.appendChild(h2)
     li.appendChild(span)
     li.appendChild(div)
