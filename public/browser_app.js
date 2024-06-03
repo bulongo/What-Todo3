@@ -1,16 +1,19 @@
 // TODOS
 // make one task shrink when another one is clicked but avoid shifting content
+// start working on the add task button and pop up
 
 const ul = document.querySelector(".all-tasks")
 const dateToday = document.querySelector(".today")
 const timeNow = document.querySelector(".time")
-const addTaskBtn = document.querySelector(".add-btn")
+const addTaskBtn = document.querySelector(".add-task-btn")
+const addTaskForm = document.querySelector(".add-task-form_active")
+const taskTitleInput = document.querySelector(".title-input")
+const myData = []
 
 const getData = async () => {
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
   showTasks(res.data.tasks)
-  // console.log(res.data.tasks)
 }
 
 getData()
@@ -55,8 +58,6 @@ const showTasks = (data) => {
   data.forEach((task) => {
     //  just remember that each task is a number above itself.
     //  e.g. Task four is actually five in the list of tasks.
-    //
-
 
     const li = document.createElement("li")
     const h2 = document.createElement("h2")
@@ -72,6 +73,7 @@ const showTasks = (data) => {
     checkBox.className = "checkbox-unselected"
     checkBox.addEventListener("click", handleCheckBoxClick)
 
+    myData.push(task)
 
     h2.innerText = task.title
     div.innerText = task.description
@@ -83,10 +85,33 @@ const showTasks = (data) => {
     li.appendChild(checkBox)
     ul.appendChild(li)
   })
+
+  // data.forEach((task) => {
+  // });
 }
 
 const addNewTask = (e) => {
-  console.log(e.target.innerText)
+  if (addTaskForm.className === "add-task-form_active") {
+    addTaskForm.className = "add-task-form_inactive"
+  } else if (addTaskForm.className === "add-task-form_inactive") {
+    addTaskForm.className = "add-task-form_active"
+  }
+  console.log(myData)
 }
 
 addTaskBtn.addEventListener("click", addNewTask)
+
+// taskTitleInput.addEventListener("input", (e) => {
+//   if (e.target.value.length >= 35) {
+//     // console.log("yeah we are at 10 now")
+//     console.log(e.target.value.length)
+//     e.target.disabled = true
+//   }
+// })
+//
+// window.addEventListener("keydown", (e) => {
+//   if (e.key === "Backspace") {
+//
+//     taskTitleInput.disabled = false
+//   }
+// })
