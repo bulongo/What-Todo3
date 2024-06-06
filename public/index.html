@@ -41,14 +41,35 @@
       </ul>
     </div>
     <div class="add-task">
-      <form class="add-task-form_active">
+      <form class="add-task-form_inactive">
         <div class="task-title">
-         <label for="title" class="title-heading">task title</label>
+         <label for="title" class="title-heading">Task title</label>
          <input type="text" name="title" value="" class="title-input" autocomplete="off">
         </div>
+        <div class="task-date">
+          <label for="date" class="task-date-title">Pick a date</label>
+          <input type="date" name="date" class="date-picker">
+        </div>
+        <div class="task-time">
+          <label for="time" class="task-time-title">Set the time</label>
+          <div class="time-inputs">
+           <input type="time" name="start-time" class="start-time">
+           <input type="time" name="end-time" class="end-time">
+          </div>
+        </div>
+        <div class="task-place">
+          <label for="place" class="task-place-title">Pick a place</label>
+          <input type="map" name="place" class="place-picker">
+        </div>
+        <div class="task-category">
+          <label for="category" class="task-category-title">Task category</label>
+          <input type="category" name="category" class="category-picker">
+        </div>
+
         <!-- <textarea rows="" cols=""></textarea> -->
+        <button type="submit" class="create-task-btn">Create</button>
       </form>
-      <button class="add-task-btn" type="button">+</button>
+      <button class="add-task-btn" type="button"><span class="add-task-icon">+</span></button>
     </div>
     <footer class="footer">
 <!-- No AI was harmed in the making of this app. -->

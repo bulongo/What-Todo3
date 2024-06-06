@@ -303,6 +303,7 @@ body {
   display: flex;
   flex-direction: column;
   transition: 0.4s ease;
+  align-items: center;
 }
 
 .add-task-form_inactive {
@@ -317,6 +318,13 @@ body {
   display: flex;
   flex-direction: column;
   transition: 0.2s ease;
+}
+
+.task-place-title,.task-category-title,
+.title-heading,task-date-title,
+.task-time-title {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
 }
 
 .task-title {
@@ -338,7 +346,7 @@ body {
   padding-left: 1rem;
   color: var(--text-secondary);
   width: 100%;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .title-input {
@@ -362,14 +370,95 @@ body {
   height: 3.5rem;
   font-size: 2rem;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   transition: 0.4s ease;
+  position: relative;
 }
 
 .add-task-btn:active {
   transform: scale(1.2);
   box-shadow: 0px 0px 7px 1px rgba(256, 69, 0, 0.9);
   transition: 0.4s ease;
+}
+
+.add-task-icon_inactive {
+  /* border: solid green; */
+  /* transform: rotate(45deg); */
+  position: absolute;
+  transition: 0.4s ease;
+}
+
+.add-task-icon_active {
+  /* border: solid green; */
+  transform: rotate(45deg);
+  position: absolute;
+  transition: 0.4s ease;
+}
+
+.task-date {
+  /* background: red; */
+  background: white;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-secondary);
+  width: 90%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.task-date-title {
+  margin: 1rem 0 .5rem 1rem;
+}
+
+.date-picker {
+  padding: 1rem;
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  height: 3rem;
+  border-radius: 10px;
+}
+
+.create-task-btn {
+  width: 40%;
+  height: 2rem;
+  color: white;
+  margin: 4rem;
+  cursor: pointer;
+  border: none;
+  background: var(--text-secondary)
+}
+
+.task-time {
+  background: white;
+  width: 90%;
+  height: 5rem;
+  border-radius: 10px;
+  display: flex;
+  color: black;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.task-time-title {
+  margin: 1rem;
+}
+
+.time-inputs {
+  /* background: green; */
+  height: 50%;
+  display: flex;
+  /* justify-content: center; */
+  padding-left: 1rem;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.time-inputs input {
+  margin:0 1rem 1rem 0;
 }
 
 /* FOOTER SECTION */

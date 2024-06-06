@@ -6,8 +6,9 @@ const ul = document.querySelector(".all-tasks")
 const dateToday = document.querySelector(".today")
 const timeNow = document.querySelector(".time")
 const addTaskBtn = document.querySelector(".add-task-btn")
-const addTaskForm = document.querySelector(".add-task-form_active")
+const addTaskForm = document.querySelector(".add-task-form_inactive")
 const taskTitleInput = document.querySelector(".title-input")
+const addTaskIcon = document.querySelector(".add-task-icon")
 const myData = []
 
 const getData = async () => {
@@ -93,10 +94,14 @@ const showTasks = (data) => {
 const addNewTask = (e) => {
   if (addTaskForm.className === "add-task-form_active") {
     addTaskForm.className = "add-task-form_inactive"
+    addTaskIcon.className = "add-task-icon_inactive"
+    // addTaskForm.autofocus = false
   } else if (addTaskForm.className === "add-task-form_inactive") {
     addTaskForm.className = "add-task-form_active"
+    addTaskIcon.className = "add-task-icon_active"
+    // console.log(addTaskForm.autofocus)
   }
-  console.log(myData)
+  // console.log(myData)
 }
 
 addTaskBtn.addEventListener("click", addNewTask)
