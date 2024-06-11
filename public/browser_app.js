@@ -8,7 +8,8 @@ const timeNow = document.querySelector(".time")
 const addTaskBtn = document.querySelector(".add-task-btn")
 const addTaskForm = document.querySelector(".add-task-form_inactive")
 const taskTitleInput = document.querySelector(".title-input")
-const addTaskIcon = document.querySelector(".add-task-icon")
+const addTaskIcon = document.querySelector(".add-task-icon_inactive")
+const createTaskBtn = document.querySelector(".create-task-btn")
 const myData = []
 
 const getData = async () => {
@@ -27,6 +28,7 @@ const getDateTime = () => {
   const time = `${hour}:${minutes}`
   dateToday.innerText = today
   timeNow.innerText = time
+  //remember to change to show the 0 if the time is before 10 minutes. eg. 15:4 to 15:04
 }
 
 const interval = setInterval(() => {
@@ -105,6 +107,13 @@ const addNewTask = (e) => {
 }
 
 addTaskBtn.addEventListener("click", addNewTask)
+
+const createTask = (e) => {
+  e.preventDefault()
+  // console.log(addTaskForm)
+}
+
+createTaskBtn.addEventListener("click",createTask)
 
 // taskTitleInput.addEventListener("input", (e) => {
 //   if (e.target.value.length >= 35) {

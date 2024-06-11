@@ -320,25 +320,35 @@ body {
   transition: 0.2s ease;
 }
 
-.task-place-title,.task-category-title,
-.title-heading,task-date-title,
+.task-place-title,
+.task-category-title,
+.title-heading,
+task-date-title,
 .task-time-title {
   color: var(--text-secondary);
   font-size: 1.1rem;
+  width: 90%;
 }
 
-.task-title {
-  width: 90%;
-  /* border: solid red; */
-  border-radius: 10px;
+.task-title,
+.task-place,
+.task-category,
+.title-date,
+.task-time {
   background: white;
-  color: black;
-  margin: 1rem auto;
+  width: 90%;
+  border-radius: 10px;
   height: 16%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.task-title {
+  color: black;
+  height: 16%;
+  margin: 1rem auto;
 }
 
 .title-heading {
@@ -428,6 +438,10 @@ body {
   color: white;
   margin: 4rem;
   cursor: pointer;
+  padding: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   background: var(--text-secondary)
 }
@@ -458,7 +472,29 @@ body {
 }
 
 .time-inputs input {
-  margin:0 1rem 1rem 0;
+  margin: 0 1rem 1rem 0;
+}
+
+.task-place,
+.task-category {
+  margin-top: 1rem;
+  height: 12rem;
+}
+
+.place-picker {
+  width: 90%;
+  border: none;
+  border-bottom: solid #999 1px;
+  margin: 1.5rem 1rem 0 1rem;
+  outline: none;
+}
+
+.category-picker {
+  background: white;
+  padding: .7rem;
+  width: 90%;
+  margin: 1.5rem 1rem 0 1rem;
+  border: solid orangered 1px;
 }
 
 /* FOOTER SECTION */
@@ -467,4 +503,3 @@ body {
   text-align: center;
   height: 5rem;
 }
-
