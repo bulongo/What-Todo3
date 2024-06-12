@@ -154,9 +154,10 @@ body {
   list-style: none;
   height: 7rem;
   border: solid var(--text-secondary-lightest) 1px;
-  background: var(--secondary-bg);
+  /* background: var(--secondary-bg); */
+  /* background: green; */
   margin-top: .9rem;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   cursor: pointer;
   transition: 0.6s ease;
   padding: 1rem;
@@ -205,7 +206,7 @@ body {
   display: block;
   /* border: solid red 1px; */
   background: var(--text-secondary);
-  border-radius: 26px;
+  /* border-radius: 26px; */
   margin-top: .2rem;
   transition: 0.3s ease;
 }
@@ -215,7 +216,7 @@ body {
   height: .3rem;
   display: block;
   background: #415057;
-  border-radius: 26px;
+  /* border-radius: 26px; */
   transition: 0.3s ease;
   margin-top: .2rem;
 }
@@ -337,7 +338,7 @@ task-date-title,
 .task-time {
   background: white;
   width: 90%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   height: 16%;
   display: flex;
   flex-direction: column;
@@ -416,7 +417,7 @@ task-date-title,
   flex-direction: column;
   color: var(--text-secondary);
   width: 90%;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   margin-bottom: 1rem;
 }
 
@@ -427,11 +428,10 @@ task-date-title,
 .date-picker {
   padding: 1rem;
   border: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   outline: none;
   height: 3rem;
-  border-radius: 10px;
-  color: #666;
+  /* border-radius: 10px; */
 }
 
 .create-task-btn {
@@ -452,7 +452,7 @@ task-date-title,
   background: white;
   width: 90%;
   height: 5rem;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   display: flex;
   color: black;
   flex-direction: column;
@@ -491,7 +491,7 @@ task-date-title,
   border-bottom: solid orangered 1px;
   padding-bottom: .2rem;
   margin: 1.5rem 1rem 0 1rem;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   outline: none;
   color: #666
 }
@@ -503,7 +503,7 @@ task-date-title,
   margin: 1.5rem 1rem 0 1rem;
   outline: none;
   border: none;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   border-bottom: solid orangered 1px;
   color: #666
 }

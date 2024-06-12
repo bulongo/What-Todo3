@@ -1,6 +1,10 @@
 const mongoose = require("mongoose")
 
 const TaskSchema = new mongoose.Schema({
+  dayTaskCreated: {
+    type: String,
+    default: new Date().toDateString()
+  },
   title: {
     type: String,
     required: [true, "Task requires a title."],
@@ -11,7 +15,13 @@ const TaskSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  description: {
+  targetDate: {
+    type: String,
+  },
+  place: {
+    type: String,
+  },
+  category: {
     type: String,
   }
 })
