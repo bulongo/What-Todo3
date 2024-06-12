@@ -1,6 +1,8 @@
 // TODOS
 // make one task shrink when another one is clicked but avoid shifting content
 // start working on the add task button and pop up
+// make the app such that even if it isn't able to connect to the mongodb server
+// so that it still has the other last saved tasks in local storage
 
 const ul = document.querySelector(".all-tasks")
 const dateToday = document.querySelector(".today")
@@ -110,10 +112,10 @@ addTaskBtn.addEventListener("click", addNewTask)
 
 const createTask = (e) => {
   e.preventDefault()
-  // console.log(addTaskForm)
+  console.log(addTaskForm)
 }
 
-createTaskBtn.addEventListener("click",createTask)
+createTaskBtn.addEventListener("click", createTask)
 
 // taskTitleInput.addEventListener("input", (e) => {
 //   if (e.target.value.length >= 35) {

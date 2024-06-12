@@ -362,12 +362,13 @@ task-date-title,
 .title-input {
   width: 90%;
   /* height: 45%; */
+  padding-bottom: .2rem;
   margin-top: 1rem;
   border: none;
   display: inline-block;
   border-bottom: solid #bbb 1px;
   vertical-align: text-bottom;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   outline: none;
   color: #666;
 }
@@ -430,6 +431,7 @@ task-date-title,
   outline: none;
   height: 3rem;
   border-radius: 10px;
+  color: #666;
 }
 
 .create-task-btn {
@@ -473,6 +475,8 @@ task-date-title,
 
 .time-inputs input {
   margin: 0 1rem 1rem 0;
+  font-size: 1.2rem;
+  color: #999
 }
 
 .task-place,
@@ -484,17 +488,24 @@ task-date-title,
 .place-picker {
   width: 90%;
   border: none;
-  border-bottom: solid #999 1px;
+  border-bottom: solid orangered 1px;
+  padding-bottom: .2rem;
   margin: 1.5rem 1rem 0 1rem;
+  font-size: 1.2rem;
   outline: none;
+  color: #666
 }
 
 .category-picker {
   background: white;
-  padding: .7rem;
+  padding-bottom: .2rem;
   width: 90%;
   margin: 1.5rem 1rem 0 1rem;
-  border: solid orangered 1px;
+  outline: none;
+  border: none;
+  font-size: 1.15rem;
+  border-bottom: solid orangered 1px;
+  color: #666
 }
 
 /* FOOTER SECTION */
