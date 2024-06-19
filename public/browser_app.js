@@ -62,58 +62,36 @@ const handleCheckBoxClick = (e) => {
   console.log(e.target)
 }
 
+
+// this little part here makes it so that when user creates new task
+// the task immediately shows up on the home screen without needing a reload
 const showAllTasks = (data) => {
+  let allTasks = []
   data.forEach((task) => {
-    //  just remember that each task is a number above itself.
-    //  e.g. Task four is actually five in the list of tasks.
-
-    // console.log(task)
-    //
-  const allTasks = data.map((task) => {
-      return `
-        <li>
-          <h2 class="task-heading">${task.title}</h2>
-          <span class="span-closed"></span>
-          <div class="div-closed">${task.description}</div>
-          <span class="checkbox-unselected">checkbox-selected</span>
-        </li>
-      `
+    allTasks = data.map((task) => {
+      return `<li class="task-closed">
+            <h2 class="task-heading">${task.title}</h2>
+            <span class="span-closed"></span>
+            <div class="div-closed">"just something generic"</div>
+            <span class="checkbox-unselected"></span>
+          </li>`
     })
+  }
+  )
+  console.log(allTasks)
+  ul.innerHTML = allTasks.join(" ")
 
-    ul.innerHTML = allTasks
-   // 
-   //  const li = document.createElement("li")
-   //  const h2 = document.createElement("h2")
-   //  const span = document.createElement("span")
-   //  const div = document.createElement("div")
-   //  const timeDiv = document.createElement("div")
-   //  const checkBox = document.createElement("span")
-   //
-   //  h2.className = "task-heading"
-   //  span.className = "span-closed"
-   //  div.className = "div-closed"
-   //  div.addEventListener("click", handleTaskState)
-   //  checkBox.className = "checkbox-unselected"
-    // checkBox.addEventListener("click", handleCheckBoxClick)
-
-    // myData.push(task)
-
-    // h2.innerText = task.title
-    // div.innerText = task.description
-    // li.className = "task-closed"
-    // li.addEventListener("click", handleTaskState)
-    // li.appendChild(h2)
-    // li.appendChild(span)
-    // li.appendChild(div)
-    // li.appendChild(checkBox)
-    // ul.appendChild(li)
+  const checkboxes = document.querySelectorAll(".checkbox-unselected")
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", handleCheckBoxClick)
   })
 
-
-
-  // data.forEach((task) => {
-  // });
+  const taskClosed = document.querySelectorAll(".task-closed")
+  taskClosed.forEach((closedTask) => {
+    closedTask.addEventListener("click", handleTaskState)
+  })
 }
+
 
 const formState = (e) => {
   if (addTaskForm.className === "add-task-form_active") {
@@ -139,18 +117,18 @@ const createTask = async (e) => {
 
   const newData = {
     taskCreationDate: `${dayTaskCreated}`,
-    title:`${taskTitle}`,
-    completed:false,
-    targetDate: `${dayTaskCreated}` ,
+    title: `${taskTitle}`,
+    completed: false,
+    targetDate: `${dayTaskCreated}`,
     place: `${placePicker}`,
-// include the option to add new places.
+    // include the option to add new places.
     category: `${category}`,
   }
 
   const jesusData = await axios.post("/api/v1/tasks", newData)
 
-  formState() 
-  for(let i = 0;i < 5;i++){
+  formState()
+  for (let i = 0; i < 5; i++) {
     addTaskForm[i].value = ""
   }
 

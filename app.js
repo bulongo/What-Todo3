@@ -1,3 +1,7 @@
+// TODO
+// Need to load the app even if it does not connect to mongo but
+// it should check for connectivity and connect to mongo and should check for updates
+
 const express = require("express")
 const app = express()
 const connectDB = require("./db/connect")

@@ -321,20 +321,21 @@ body {
   transition: 0.2s ease;
 }
 
-.task-place-title,
-.task-category-title,
 .title-heading,
-task-date-title,
-.task-time-title {
+.task-date-title,
+.task-place-title,
+.task-category-title {
   color: var(--text-secondary);
   font-size: 1.1rem;
-  width: 90%;
+  width: 100%;
+  padding-left: 1rem;
+  background: brown;
 }
 
 .task-title,
 .task-place,
 .task-category,
-.title-date,
+.task-date,
 .task-time {
   background: white;
   width: 90%;
@@ -344,34 +345,34 @@ task-date-title,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.task-title {
-  color: black;
-  height: 16%;
   margin: 1rem auto;
 }
 
+
+.task-title {
+  background: purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .title-heading {
-  /* border: solid green; */
-  padding-left: 1rem;
-  color: var(--text-secondary);
   width: 100%;
-  font-size: 1.1rem;
+  padding: .7rem;
 }
 
 .title-input {
   width: 90%;
   /* height: 45%; */
-  padding-bottom: .2rem;
-  margin-top: 1rem;
+  /* padding-bottom: .2rem; */
+  /* margin-top: 1rem; */
+  /* background: green; */
   border: none;
   display: inline-block;
-  border-bottom: solid #bbb 1px;
-  vertical-align: text-bottom;
+  border-bottom: solid orangered 1px;
   font-size: 1.2rem;
   outline: none;
-  color: #666;
+  padding: .2rem;
 }
 
 .add-task-btn {
@@ -422,11 +423,12 @@ task-date-title,
 }
 
 .task-date-title {
-  margin: 1rem 0 .5rem 1rem;
+  /* margin: 1rem 0 .5rem 1rem; */
+  color: orangered;
 }
 
 .date-picker {
-  padding: 1rem;
+  /* padding: 1rem; */
   border: none;
   font-size: 1.1rem;
   outline: none;
@@ -480,9 +482,19 @@ task-date-title,
 }
 
 .task-place,
+.task-category,
+.title-heading,
+.task-date {
+  margin: 1rem auto;
+  height: 16%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-place,
 .task-category {
-  margin-top: 1rem;
-  height: 12rem;
+  background: green;
 }
 
 .place-picker {
@@ -491,6 +503,7 @@ task-date-title,
   border-bottom: solid orangered 1px;
   padding-bottom: .2rem;
   margin: 1.5rem 1rem 0 1rem;
+  margin-top: 1rem;
   font-size: 1.15rem;
   outline: none;
   color: #666
@@ -500,7 +513,7 @@ task-date-title,
   background: white;
   padding-bottom: .2rem;
   width: 90%;
-  margin: 1.5rem 1rem 0 1rem;
+  /* margin: 1.5rem 1rem 0 1rem; */
   outline: none;
   border: none;
   font-size: 1.1rem;
