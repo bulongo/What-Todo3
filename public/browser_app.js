@@ -13,6 +13,7 @@ const addTaskForm = document.querySelector(".add-task-form_inactive")
 const taskTitleInput = document.querySelector(".title-input")
 const addTaskIcon = document.querySelector(".add-task-icon_inactive")
 const createTaskBtn = document.querySelector(".create-task-btn")
+const alertInactive = document.querySelector(".alert_inactive")
 const myData = []
 let dayTaskCreated;
 
@@ -125,6 +126,15 @@ const createTask = async (e) => {
     category: `${category}`,
   }
 
+
+  if (taskTitleInput.value == "") {
+    console.log('there is nothing in the input field')
+    alertInactive.className = "alert_active"
+    setTimeout(() => {
+      alertInactive.className = "alert_inactive"
+    }, 2000)
+    // lets add a little pop up that shows up if task title is empty
+  }
   const jesusData = await axios.post("/api/v1/tasks", newData)
 
   formState()
