@@ -1,9 +1,10 @@
 :root {
   /* main colors */
-  --bg: #030F19;
+  --bg: #111822;
+  --bg-backup: #030F19;
   --secondary-bg: #010914;
   --text-main: #eee;
-  --text-secondary: #FE5F55;
+  --text-secondary: #DA6D58;
   --text-secondary-lightest: rgba(254, 95, 85, 0.2);
   --text-secondary-light: rgba(254, 95, 85, 0.5);
   --find: solid 1px red;
@@ -136,10 +137,16 @@ body {
   background: rgba(256, 69, 0, .4);
   height: 10%;
   display: flex;
+  justify-content: space-between;
   margin-top: 1.9rem;
   padding: 0 .6rem;
   /* justify-content: center; */
   align-items: center;
+}
+
+.number-of-tasks {
+  font-size: 1.3rem;
+  margin-right: .5rem;
 }
 
 .all-tasks {
@@ -293,7 +300,7 @@ body {
 .add-task-form_active {
   /* opacity: .8; */
   backdrop-filter: blur(5px);
-  background: #eee;
+  background: var(--bg-backup);
   transform: translateY(-100px);
   /* border: solid orangered 1px; */
   padding-top: 1rem;
@@ -310,9 +317,7 @@ body {
 
 .add-task-form_inactive {
   opacity: 0;
-  background: #eee;
   transform: translateY(300px);
-  /* border: solid green; */
   width: 90%;
   height: 30%;
   bottom: 1rem;
@@ -329,18 +334,19 @@ body {
   color: var(--text-secondary);
   font-size: 1.1rem;
   width: 100%;
-  padding-left: 1rem;
-  background: brown;
+  /* padding-left: 1rem; */
+  /* border: solid var(--bg) 1px; */
 }
 
 .task-place,
 .task-category,
 .task-date,
+.task-title,
 .task-time {
-  background: white;
   width: 90%;
   /* border-radius: 10px; */
-  height: 16%;
+  height: 18%;
+  /* border: solid green 1px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -357,7 +363,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: white;
 }
 
 .title-input {
@@ -366,10 +371,13 @@ body {
   /* padding-bottom: .2rem; */
   /* margin-top: 1rem; */
   border: none;
+  background: none;
   border-bottom: solid 1px orangered;
   display: inline-block;
+  font-size: 1.1rem;
   outline: none;
   padding: .2rem;
+  color: #999;
 }
 
 .add-task-btn {
@@ -410,7 +418,7 @@ body {
 
 .task-date {
   /* background: red; */
-  background: white;
+  /* background: white; */
   display: flex;
   flex-direction: column;
   color: var(--text-secondary);
@@ -419,17 +427,16 @@ body {
   margin-bottom: 1rem;
 }
 
-.task-date-title {
-  /* margin: 1rem 0 .5rem 1rem; */
-  color: orangered;
-}
-
 .date-picker {
   /* padding: 1rem; */
   border: none;
   font-size: 1.1rem;
   outline: none;
   height: 3rem;
+  background: none;
+  color: #666;
+  width: 100%;
+  border-bottom: solid orangered 1px;
   /* border-radius: 10px; */
 }
 
@@ -448,7 +455,7 @@ body {
 }
 
 .task-time {
-  background: white;
+  /* background: white; */
   width: 90%;
   height: 5rem;
   /* border-radius: 10px; */
@@ -491,6 +498,7 @@ body {
 .place-picker {
   width: 100%;
   border: none;
+  background: none;
   border-bottom: solid orangered 1px;
   padding-bottom: .2rem;
   margin: 1.5rem 1rem 0 1rem;
@@ -501,9 +509,9 @@ body {
 }
 
 .category-picker {
-  background: white;
   padding-bottom: .2rem;
   width: 100%;
+  background: none;
   /* margin: 1.5rem 1rem 0 1rem; */
   outline: none;
   border: none;

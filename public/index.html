@@ -26,7 +26,7 @@
     </header>
 
     <form class="search">
-      <input type="search" class="search-bar" name="seach" value="" placeholder="Search your Lists">
+      <input type="search" class="search-bar" name="seach" value="" placeholder="Search for task">
     <!-- No need for a button because the form will search as I type. -->
       <div type="button" class="search-icon-container">
         <span class="search-icon"></span>
@@ -36,6 +36,7 @@
     <div class="tasks">
       <div class="todays-tasks">
         <h2 class="todays-heading">Today's Tasks</h2>
+        <div class="number-of-tasks"></div>
       </div>
       <ul class="all-tasks">
       </ul>
@@ -44,7 +45,7 @@
       <form class="add-task-form_inactive">
         <div class="task-title">
          <label for="title" class="title-heading">Task title</label>
-         <input type="text" name="title" value="" class="title-input" autocomplete="off">
+         <input type="text" name="title" value="" class="title-input" autocomplete="off" placeholder="E.g. Pick up the kids...">
         </div>
         <div class="task-date">
           <label for="date" class="task-date-title">Target date</label>

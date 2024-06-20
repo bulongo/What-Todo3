@@ -14,6 +14,7 @@ const taskTitleInput = document.querySelector(".title-input")
 const addTaskIcon = document.querySelector(".add-task-icon_inactive")
 const createTaskBtn = document.querySelector(".create-task-btn")
 const alertInactive = document.querySelector(".alert_inactive")
+const numberOfTasks = document.querySelector(".number-of-tasks")
 const myData = []
 let dayTaskCreated;
 
@@ -21,6 +22,7 @@ const getData = async (arg) => {
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
   showAllTasks(res.data.tasks)
+  numberOfTasks.innerText = res.data.tasks.length
 }
 
 getData()
@@ -30,17 +32,26 @@ const getDateTime = () => {
   const today = day.toDateString()
   const hour = day.getHours()
   const minutes = day.getMinutes()
+  const seconds = day.getSeconds()
   const time = `${hour}:${minutes}`
+
+  // if(today)
+  // console.log(time.split("")[4])
+  if (!time.split("")[4]) {
+    time = `${hour}:0${minutes}`
+  }
   dateToday.innerText = today
   timeNow.innerText = time
   dayTaskCreated = today
   //remember to change to show the 0 if the time is before 10 minutes. eg. 15:4 to 15:04
 }
 
-const interval = setInterval(() => {
+const timeInterval = setInterval(() => {
   getDateTime()
-  clearInterval(interval)
 }, 1000);
+
+// run below code if app is exited
+// clearInterval(timeInterval)
 
 const handleTaskState = (e) => {
   if (e.target.className === "task-closed") {
@@ -73,7 +84,7 @@ const showAllTasks = (data) => {
       return `<li class="task-closed">
             <h2 class="task-heading">${task.title}</h2>
             <span class="span-closed"></span>
-            <div class="div-closed">"just something generic"</div>
+            <div class="div-closed">${task.targetDate}</div>
             <span class="checkbox-unselected"></span>
           </li>`
     })
@@ -120,7 +131,7 @@ const createTask = async (e) => {
     taskCreationDate: `${dayTaskCreated}`,
     title: `${taskTitle}`,
     completed: false,
-    targetDate: `${dayTaskCreated}`,
+    targetDate: `${finishTaskDay}`,
     place: `${placePicker}`,
     // include the option to add new places.
     category: `${category}`,
@@ -135,7 +146,8 @@ const createTask = async (e) => {
     }, 2000)
     // lets add a little pop up that shows up if task title is empty
   }
-  const jesusData = await axios.post("/api/v1/tasks", newData)
+  await axios.post("/api/v1/tasks", newData)
+
 
   formState()
   for (let i = 0; i < 5; i++) {
@@ -143,9 +155,6 @@ const createTask = async (e) => {
   }
 
   getData()
-  // okey, here we have to make sure to check if the item is already showing on the screen before updating it.
-  // getData()
-
   // console.log(jesusData)
 }
 
