@@ -92,7 +92,6 @@ const showAllTasks = (data) => {
             <h2 class="task-heading">${task.title}</h2>
             <span class="span-closed"></span>
             <div class="div-closed">
-              ${task.targetDate}
               <div class="options">
                 <span class="edit">Edit</span>
                 <span class="delete">Delete</span>
@@ -130,7 +129,7 @@ const showAllTasks = (data) => {
         taskState.style.color = "green" 
         break
       case "pending":
-        taskState.style.color = "purple"
+        taskState.style.color = "#FCDDF2"
         break
       default:
         return
