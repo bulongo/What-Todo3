@@ -123,10 +123,10 @@ const showAllTasks = (data) => {
   taskStates.forEach((taskState) => {
     switch(taskState.innerText){
       case "incomplete":
-        taskState.style.color = "#DA6D58" 
+        taskState.style.color = "#FE5F55" 
         break
       case "complete":
-        taskState.style.color = "green" 
+        taskState.style.color = "#2F605B" 
         break
       case "pending":
         taskState.style.color = "#FCDDF2"
