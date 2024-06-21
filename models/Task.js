@@ -17,7 +17,7 @@ const TaskSchema = new mongoose.Schema({
     default: "incomplete"
   },
   targetDate: {
-    type: String,
+    type: Date,
   },
   place: {
     type: String,
