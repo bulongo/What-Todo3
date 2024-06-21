@@ -11,9 +11,10 @@ const TaskSchema = new mongoose.Schema({
     trim: true,
     // maxlength: [30, "Title should only be 30 letters long."]
   },
-  completed: {
-    type: Boolean,
-    default: false
+  state: {
+    type: String,
+// other states include pending and complete.
+    default: "incomplete"
   },
   targetDate: {
     type: String,

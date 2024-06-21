@@ -30,16 +30,20 @@ getData()
 const getDateTime = () => {
   const day = new Date()
   const today = day.toDateString()
-  const hour = day.getHours()
-  const minutes = day.getMinutes()
+  let hour = day.getHours()
+  let minutes = day.getMinutes()
   const seconds = day.getSeconds()
-  const time = `${hour}:${minutes}`
+  let time = `${hour}:${minutes}`
 
   // if(today)
-  // console.log(time.split("")[4])
-  if (!time.split("")[4]) {
-    time = `${hour}:0${minutes}`
+  // console.log(time.length - 1)
+  if (time.length < 5 && time.split("")[time.length - 1] > 0) {
+    minutes = `0${minutes}`
+  } else if (time.split("")[1] >= 0) {
+    hour = `${hour}`
   }
+
+  time = `${hour}:${minutes}`
   dateToday.innerText = today
   timeNow.innerText = time
   dayTaskCreated = today
@@ -77,6 +81,7 @@ const handleCheckBoxClick = (e) => {
 
 // this little part here makes it so that when user creates new task
 // the task immediately shows up on the home screen without needing a reload
+// it works like a react and next component.
 const showAllTasks = (data) => {
   let allTasks = []
   data.forEach((task) => {
@@ -84,7 +89,15 @@ const showAllTasks = (data) => {
       return `<li class="task-closed">
             <h2 class="task-heading">${task.title}</h2>
             <span class="span-closed"></span>
-            <div class="div-closed">${task.targetDate}</div>
+            <div class="div-closed">
+              ${task.targetDate}
+              <div class="options">
+                <span class="edit">Edit</span>
+                <span class="delete">Delete</span>
+                <span class="complete">Complete</span>
+              </div>
+            </div>
+            <div>state: pending, complete</div>
             <span class="checkbox-unselected"></span>
           </li>`
     })
