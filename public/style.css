@@ -150,7 +150,7 @@ body {
 }
 
 .all-tasks {
-  height: 80%;
+  height: 83%;
   scrollbar-width: none;
   /* border: solid green; */
   overflow-y: scroll;
@@ -184,6 +184,33 @@ body {
   position: relative;
 }
 
+.task-closed > .state {
+  /* background: green; */
+  width: 50%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  margin-top: .5rem;
+  padding-left: .3rem;
+  font-style: italic;
+  font-size: 1rem;
+  color: #666;
+  transition: 0.5s ease;
+}
+
+.task-open > .state {
+  /* background: green; */
+  width: 40%;
+  height: 10%;
+  display: flex;
+  margin-top: .1rem;
+  align-items: center;
+  padding-left: .3rem;
+  font-style: italic;
+  font-size: .8rem;
+  color: #666;
+  transition: 0.5s ease;
+}
 
 .task-closed::before,
 .task-open::before {
@@ -293,6 +320,8 @@ body {
   /* border: solid red; */
   height: 5rem;
   display: flex;
+  width: 20%;
+  margin: 0 auto;
   justify-content: center;
   align-items: center;
 }
@@ -317,14 +346,15 @@ body {
 
 .add-task-form_inactive {
   opacity: 0;
-  transform: translateY(300px);
-  width: 90%;
-  height: 30%;
-  bottom: 1rem;
+  transform: translateY(700px);
+  width: 92%;
+  height: 70%;
+  bottom: -.2rem;
   position: absolute;
   display: flex;
   flex-direction: column;
   transition: 0.2s ease;
+  align-items: center;
 }
 
 .title-heading,
@@ -394,6 +424,7 @@ body {
   cursor: pointer;
   transition: 0.4s ease;
   position: relative;
+  z-index: 10;
 }
 
 .add-task-btn:active {
@@ -558,6 +589,14 @@ body {
 /* FOOTER SECTION */
 .footer {
   /* border: solid blue; */
-  text-align: center;
+  width: 100%;
   height: 5rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  /* background: green; */
 }

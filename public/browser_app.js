@@ -4,7 +4,9 @@
 // make the app such that even if it isn't able to connect to the mongodb server
 // so that it still has the other last saved tasks in local storage
 
-
+const header = document.querySelector(".header")
+const search = document.querySelector(".search")
+const footer = document.querySelector(".footer")
 const ul = document.querySelector(".all-tasks")
 const dateToday = document.querySelector(".today")
 const timeNow = document.querySelector(".time")
@@ -97,13 +99,14 @@ const showAllTasks = (data) => {
                 <span class="complete">Complete</span>
               </div>
             </div>
-            <div>state: pending, complete</div>
+            <div class="state">state: <span class="taskState">${task.state}</span></div>
             <span class="checkbox-unselected"></span>
           </li>`
     })
   }
   )
-  console.log(allTasks)
+  // console.log(allTasks)
+
   ul.innerHTML = allTasks.join(" ")
 
   const checkboxes = document.querySelectorAll(".checkbox-unselected")
@@ -115,6 +118,25 @@ const showAllTasks = (data) => {
   taskClosed.forEach((closedTask) => {
     closedTask.addEventListener("click", handleTaskState)
   })
+
+  // Felt too lazy to write a lot of if logic.
+  const taskStates = Array.from(document.querySelectorAll(".taskState"))
+  taskStates.forEach((taskState) => {
+    switch(taskState.innerText){
+      case "incomplete":
+        taskState.style.color = "#DA6D58" 
+        break
+      case "complete":
+        taskState.style.color = "green" 
+        break
+      case "pending":
+        taskState.style.color = "purple"
+        break
+      default:
+        return
+    }
+  })
+  // console.log(taskState.style.color)
 }
 
 
@@ -173,6 +195,24 @@ const createTask = async (e) => {
 
 
 createTaskBtn.addEventListener("click", (e) => createTask(e))
+
+
+// CLOSE THE FORM IF ANY OTHER ITEM OUTSIDE OF IT CLOSES THE FORM
+//
+
+
+const closeForm = () => {
+  if(addTaskForm.className == "add-task-form_active"){
+    addTaskForm.className = "add-task-form_inactive"
+    addTaskIcon.className = "add-task-icon_inactive"
+  }
+  // console.log("what is going on")
+}
+
+header.addEventListener("click",closeForm)
+search.addEventListener("click",closeForm)
+footer.addEventListener("click",closeForm)
+
 
 // THE SEARCH SECTION
 // taskTitleInput.addEventListener("input", (e) => {

@@ -1,0 +1,15 @@
+- The pending state. Theme it to look better.
+
+
+
+It's funny I have a todo list to help me make my todo app.
+
+- Make the search bar responsive to change. Already have it in the comments at the end of
+  the browser_app.js.
+- Make the fucking dates in the tasks themselves work. 
+- Finish off the delete and edit buttons in the tasks
+- Make complete tasks go to the complete tasks page so we can use that to show growth and streaks so as to turn it into a game.
+- Reward user somehow.
+- Start working with forks so as to gain recognition.
+- Send deleted tasks to recycle bin and delete permanently after a while.
+-

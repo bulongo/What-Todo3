@@ -14,11 +14,13 @@ const TaskSchema = new mongoose.Schema({
   state: {
     type: String,
     // other states include pending and complete.
-    default: "incomplete"
+    default: "complete"
   },
   targetDate: {
     type: Date,
-    default: new Date().toDateString(),
+    // add the ability a user to type today in input and then it gets the days date.
+    // a nice little easter egg
+    default: new Date(),
   },
   place: {
     type: String,
