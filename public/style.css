@@ -161,7 +161,7 @@ body {
   list-style: none;
   height: 7rem;
   border: solid var(--text-secondary-lightest) 1px;
-  /* background: var(--secondary-bg); */
+  /* background: var(--secondary-bg);*/
   /* background: green; */
   margin-top: .9rem;
   /* border-radius: 10px; */
@@ -173,7 +173,7 @@ body {
 
 .task-open {
   list-style: none;
-  height: 10rem;
+  min-height: 10rem;
   border: solid var(--text-secondary-light) 1px;
   background: var(--secondary-bg);
   margin-top: .9rem;
@@ -366,6 +366,10 @@ body {
   width: 100%;
   /* padding-left: 1rem; */
   /* border: solid var(--bg) 1px; */
+}
+
+.task-heading {
+  text-transform: capitalize;
 }
 
 .task-place,

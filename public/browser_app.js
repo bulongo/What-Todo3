@@ -39,11 +39,11 @@ const getDateTime = () => {
 
   // if(today)
   // console.log(time.length - 1)
-  if (time.length < 5 && time.split("")[time.length - 1] > 0) {
-    minutes = `0${minutes}`
-  } else if (time.split("")[1] >= 0) {
-    hour = `${hour}`
-  }
+  // if (time.length < 5 && time.split("")[time.length - 1] > 0) {
+  //   minutes = `0${minutes}`
+  // } else if (time.split("")[1] >= 0) {
+  //   hour = `${hour}`
+  // }
 
   time = `${hour}:${minutes}`
   dateToday.innerText = today
@@ -84,6 +84,8 @@ const handleCheckBoxClick = (e) => {
 // this little part here makes it so that when user creates new task
 // the task immediately shows up on the home screen without needing a reload
 // it works like a react and next component.
+// <div>${task.details}</div>
+
 const showAllTasks = (data) => {
   let allTasks = []
   data.forEach((task) => {
