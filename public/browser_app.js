@@ -101,6 +101,7 @@ const showAllTasks = (data) => {
               </div>
             </div>
             <div class="state">state: <span class="taskState">${task.state}</span></div>
+            <span class="pending-checkbox_unselected"></span>
             <span class="checkbox-unselected"></span>
           </li>`
     })
@@ -110,17 +111,13 @@ const showAllTasks = (data) => {
 
   ul.innerHTML = allTasks.join(" ")
 
-  const checkboxes = document.querySelectorAll(".checkbox-unselected")
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("click", handleCheckBoxClick)
-  })
-
-  const taskClosed = document.querySelectorAll(".task-closed")
+const taskClosed = document.querySelectorAll(".task-closed")
   taskClosed.forEach((closedTask) => {
     closedTask.addEventListener("click", handleTaskState)
   })
 
   // Felt too lazy to write a lot of if logic.
+  //
   const taskStates = Array.from(document.querySelectorAll(".taskState"))
   taskStates.forEach((taskState) => {
     switch(taskState.innerText){
@@ -131,13 +128,17 @@ const showAllTasks = (data) => {
         taskState.style.color = "#2F605B" 
         break
       case "pending":
-        taskState.style.color = "#FCDDF2"
+        taskState.style.color = "#ccc"
         break
       default:
         return
     }
   })
-  // console.log(taskState.style.color)
+
+  const checkboxes = document.querySelectorAll(".checkbox-unselected")
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", handleCheckBoxClick)
+  })
 }
 
 

@@ -159,7 +159,7 @@ body {
 
 .task-closed {
   list-style: none;
-  height: 7rem;
+  min-height: 7rem;
   border: solid var(--text-secondary-lightest) 1px;
   /* background: var(--secondary-bg);*/
   /* background: green; */
@@ -173,6 +173,7 @@ body {
 
 .task-open {
   list-style: none;
+  /* background: green; */
   min-height: 10rem;
   border: solid var(--text-secondary-light) 1px;
   background: var(--secondary-bg);
@@ -184,30 +185,21 @@ body {
   position: relative;
 }
 
-.task-closed > .state {
+.state {
   /* background: green; */
-  width: 50%;
-  height: 30%;
+  width: 30%;
+  /* height: 30%; */
   display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
   align-items: center;
-  margin-top: .5rem;
-  padding-left: .3rem;
-  font-style: italic;
-  font-size: 1rem;
-  color: #666;
-  transition: 0.5s ease;
-}
-
-.task-open > .state {
-  /* background: green; */
-  width: 40%;
-  height: 10%;
-  display: flex;
-  margin-top: .1rem;
-  align-items: center;
-  padding-left: .3rem;
-  font-style: italic;
+  justify-content: flex-start;
   font-size: .8rem;
+  margin-top: 1rem;
+  margin-right: .4rem;
+  padding-left: .3rem;
+  font-style: italic;
   color: #666;
   transition: 0.5s ease;
 }
@@ -260,21 +252,22 @@ body {
 .div-closed {
   background: rgba(256, 69, 0, 0.3);
   border: solid rgba(256, 69, 0, .4) 1px;
-  height: 1.5rem;
+  min-height: 1.5rem;
   padding-top: .2rem;
   padding-left: .2rem;
-  width: 90%;
+  width: 100%;
   transition: 0.6s ease;
   margin-top: .4rem;
   overflow-y: hidden;
 }
 
 .div-open {
-  height: 75%;
+  min-height: 4.7rem;
   background: rgba(256, 69, 0, 0.2);
+  /* background: blue; */
   border: solid orangered 1px;
   transition: 0.6s ease;
-  width: 90%;
+  width: 100%;
   overflow-y: scroll;
   padding-top: .2rem;
   padding-left: .2rem;
@@ -283,20 +276,20 @@ body {
 
 /* CHECKBOX SECTION */
 
+.pending-checkbox_unselected,
 .checkbox-unselected {
   border: solid #666 1px;
   position: absolute;
-  right: 13px;
   bottom: 8px;
   width: 20px;
   height: 20px;
   border-radius: 2px;
 }
 
+.pending-checkbox_unselected,
 .checkbox-selected {
   border: solid #666 1px;
   position: absolute;
-  right: 13px;
   bottom: 8px;
   width: 20px;
   height: 20px;
@@ -304,6 +297,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.checkbox-selected,
+.checkbox-unselected {
+  right: 13px;
+}
+
+
+.pending-checkbox_selected,
+.pending-checkbox_unselected {
+  right: 40px;
 }
 
 .checkbox-selected::before {

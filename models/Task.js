@@ -14,7 +14,7 @@ const TaskSchema = new mongoose.Schema({
   state: {
     type: String,
     // other states include pending and complete.
-    default: "complete"
+    default: "incomplete"
   },
   targetDate: {
     type: Date,
