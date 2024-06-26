@@ -160,7 +160,7 @@ body {
 .task-closed {
   list-style: none;
   min-height: 7rem;
-  border: solid var(--text-secondary-lightest) 1px;
+  border-bottom: solid var(--text-secondary-lightest) 1px;
   /* background: var(--secondary-bg);*/
   /* background: green; */
   margin-top: .9rem;
@@ -175,10 +175,10 @@ body {
   list-style: none;
   /* background: green; */
   min-height: 10rem;
-  border: solid var(--text-secondary-light) 1px;
-  background: var(--secondary-bg);
+  border-bottom: solid var(--text-secondary-light) 1px;
+  background: rgba(1,9,20,0.3);
   margin-top: .9rem;
-  border-radius: 10px;
+  /*border-radius: 10px;*/
   cursor: pointer;
   transition: 0.6s ease;
   padding: 1rem;
@@ -250,28 +250,28 @@ body {
 /* THE LITTLE BARS THAT CHANGE COLOR AND LENGTH */
 
 .div-closed {
-  background: rgba(256, 69, 0, 0.3);
-  border: solid rgba(256, 69, 0, .4) 1px;
+  /*background: rgba(256, 69, 0, 0.3);*/
+  /*border: solid rgba(256, 69, 0, .4) 1px;*/
   min-height: 1.5rem;
   padding-top: .2rem;
   padding-left: .2rem;
-  width: 100%;
+  width: 75%;
   transition: 0.6s ease;
-  margin-top: .4rem;
+  margin-top: 2rem;
   overflow-y: hidden;
 }
 
 .div-open {
-  min-height: 4.7rem;
-  background: rgba(256, 69, 0, 0.2);
-  /* background: blue; */
-  border: solid orangered 1px;
+  /*min-height: 4.7rem;*/
+  /*background: rgba(256, 69, 0, 0.2);*/
+   /*background: blue; */
+  /*border: solid #999 1px;*/
   transition: 0.6s ease;
-  width: 100%;
+  width: 75%;
   overflow-y: scroll;
   padding-top: .2rem;
   padding-left: .2rem;
-  margin-top: .4rem;
+  margin-top: 5rem;
 }
 
 /* CHECKBOX SECTION */
