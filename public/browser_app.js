@@ -20,11 +20,6 @@ const numberOfTasks = document.querySelector(".number-of-tasks")
 const myData = []
 let dayTaskCreated;
 
-const getImages = async () => {
-  const res = await axios.get(`edit.png`)
-  return res
-}
-
 const getData = async (arg) => {
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
@@ -86,7 +81,8 @@ const showAllTasks = (data) => {
             <span class="checkbox-unselected"></span>
             <h2 class="task-heading">${task.title}</h2>
             <div class="options">
-              <img class="edit" src="/edit.png">
+              <img class="icon" id="edit" src="/edit.png">
+              <img class="icon" id="delete" src="/delete.png">
             </div>
           </li>`
     })
@@ -162,6 +158,17 @@ const createTask = async (e) => {
 
 createTaskBtn.addEventListener("click", (e) => createTask(e))
 
+
+// EDIT SECTION
+
+const editTask = (taskId) => {
+  console.log(taskID)
+}
+
+const editBtn = document.getElementById("edit")
+console.log(editBtn)
+
+//editBtn.addEventListener("click",editTask("Something here"))
 
 // CLOSE THE FORM IF ANY OTHER ITEM OUTSIDE OF IT CLOSES THE FORM
 //

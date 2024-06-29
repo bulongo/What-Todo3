@@ -212,9 +212,18 @@ body {
   justify-content: space-around;
 }
 
-.edit {
-  background: green;
-  font-size:.4rem;
+.icon {
+  /*background: purple;*/
+  filter: invert(90%);
+  width: 1.1rem;
+  margin-right: .5rem;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.icon:active {
+  filter: invert(100%);
+  transition: 0.1s ease;
 }
 
 .div-closed {
