@@ -20,6 +20,11 @@ const numberOfTasks = document.querySelector(".number-of-tasks")
 const myData = []
 let dayTaskCreated;
 
+const getImages = async () => {
+  const res = await axios.get(`edit.png`)
+  return res
+}
+
 const getData = async (arg) => {
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
@@ -59,25 +64,12 @@ const timeInterval = setInterval(() => {
 // run below code if app is exited
 // clearInterval(timeInterval)
 
-const handleTaskState = (e) => {
-  if (e.target.className === "task-closed") {
-    e.target.className = "task-open"
-    e.target.children[1].className = "span-open"
-    e.target.children[2].className = "div-open"
-  } else if (e.target.className === "task-open") {
-    e.target.className = "task-closed"
-    e.target.children[1].className = "span-closed"
-    e.target.children[2].className = "div-closed"
-  }
-}
-
 const handleCheckBoxClick = (e) => {
   if (e.target.className === "checkbox-unselected") {
     e.target.className = "checkbox-selected"
   } else if (e.target.className === "checkbox-selected") {
     e.target.className = "checkbox-unselected"
   }
-  console.log(e.target)
 }
 
 
@@ -91,18 +83,11 @@ const showAllTasks = (data) => {
   data.forEach((task) => {
     allTasks = data.map((task) => {
       return `<li class="task-closed">
-            <h2 class="task-heading">${task.title}</h2>
-            <span class="span-closed"></span>
-            <div class="div-closed">
-              <div class="options">
-                <span class="edit">Edit</span>
-                <span class="delete">Delete</span>
-                <span class="complete">Complete</span>
-              </div>
-            </div>
-            <div class="state">state: <span class="taskState">${task.state}</span></div>
-            <span class="pending-checkbox_unselected"></span>
             <span class="checkbox-unselected"></span>
+            <h2 class="task-heading">${task.title}</h2>
+            <div class="options">
+              <img class="edit" src="/edit.png">
+            </div>
           </li>`
     })
   }
@@ -111,29 +96,8 @@ const showAllTasks = (data) => {
 
   ul.innerHTML = allTasks.join(" ")
 
-const taskClosed = document.querySelectorAll(".task-closed")
-  taskClosed.forEach((closedTask) => {
-    closedTask.addEventListener("click", handleTaskState)
-  })
-
   // Felt too lazy to write a lot of if logic.
   //
-  const taskStates = Array.from(document.querySelectorAll(".taskState"))
-  taskStates.forEach((taskState) => {
-    switch(taskState.innerText){
-      case "incomplete":
-        taskState.style.color = "#FE5F55" 
-        break
-      case "complete":
-        taskState.style.color = "#2F605B" 
-        break
-      case "pending":
-        taskState.style.color = "#ccc"
-        break
-      default:
-        return
-    }
-  })
 
   const checkboxes = document.querySelectorAll(".checkbox-unselected")
   checkboxes.forEach((checkbox) => {

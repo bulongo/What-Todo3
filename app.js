@@ -11,6 +11,7 @@ const port = 3001
 
 app.use(express.json())
 app.use(express.static("./public/"))
+app.use(express.static("./public/images"))
 
 app.use("/api/v1/tasks", tasks)
 
