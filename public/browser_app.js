@@ -67,6 +67,34 @@ const handleCheckBoxClick = (e) => {
   }
 }
 
+// EDIT SECTION
+
+const editTask = (taskData) => {
+  console.log(taskData)
+}
+
+// DELETE SECTION
+const deleteTask = (task) => {
+  //task.className = "deleting-task"
+  const thisTask = task.target.parentElement.parentElement
+  thisTask.className = "deleting-task"
+}
+
+const closeDelete = (task) => {
+  //task.className = "deleting-task"
+  //this below is to get the <li> element
+  const thisTask = task.target.parentElement.parentElement.parentElement
+  thisTask.className = "task-closed"
+  //console.log(thisTask)
+}
+
+const confirmDelete = (task) => {
+  //task.className = "deleting-task"
+  const thisTask = task.target.parentElement.parentElement
+  //if(thisTask)
+  //thisTask.className = "task-deleted"
+  console.log(thisTask)
+}
 
 // this little part here makes it so that when user creates new task
 // the task immediately shows up on the home screen without needing a reload
@@ -81,19 +109,50 @@ const showAllTasks = (data) => {
             <span class="checkbox-unselected"></span>
             <h2 class="task-heading">${task.title}</h2>
             <div class="options">
-              <img class="icon" id="edit" src="/edit.png">
-              <img class="icon" id="delete" src="/delete.png">
+              <img class="icon edit" src="/edit.png">
+              <img class="icon delete" src="/delete.png">
+            </div>
+            <div class="delete-options">
+              <div class="cancel delete-option"><span class="nix">x</span></div>
+              <div class="confirm delete-option"><img class="check" src="/checkmark.png"></div>
             </div>
           </li>`
     })
   }
   )
-  // console.log(allTasks)
 
   ul.innerHTML = allTasks.join(" ")
 
-  // Felt too lazy to write a lot of if logic.
-  //
+  const deleteBtns = document.querySelectorAll(".delete")
+  deleteBtns.forEach((deleteBtn) => {
+    deleteBtn.addEventListener("click",(e) => {
+      deleteTask(e)
+    })
+  });
+
+  const cancelDeletes = document.querySelectorAll(".cancel")
+  cancelDeletes.forEach((cancelDelete) => {
+    cancelDelete.addEventListener("click",(e) => {
+      closeDelete(e)
+    })
+  });
+
+  const checks = document.querySelectorAll(".confirm")
+  checks.forEach((check) => {
+    check.addEventListener("click",(e) => {
+      confirmDelete(e)
+    })
+  });
+
+  
+  const editBtns = document.querySelectorAll(".edit")
+  editBtns.forEach((editBtn) => {
+    editBtn.addEventListener("click",() => {
+      editTask(data)
+    })
+  })
+
+  //  task.children[3].children[0].addEventListener("click",closeDelete)
 
   const checkboxes = document.querySelectorAll(".checkbox-unselected")
   checkboxes.forEach((checkbox) => {
@@ -158,15 +217,6 @@ const createTask = async (e) => {
 
 createTaskBtn.addEventListener("click", (e) => createTask(e))
 
-
-// EDIT SECTION
-
-const editTask = (taskId) => {
-  console.log(taskID)
-}
-
-const editBtn = document.getElementById("edit")
-console.log(editBtn)
 
 //editBtn.addEventListener("click",editTask("Something here"))
 
