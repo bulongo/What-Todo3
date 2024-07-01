@@ -90,9 +90,8 @@ const closeDelete = (task) => {
 
 const confirmDelete = (task) => {
   //task.className = "deleting-task"
-  const thisTask = task.target.parentElement.parentElement
-  //if(thisTask)
-  //thisTask.className = "task-deleted"
+  const thisTask = task.target.parentElement.parentElement.parentElement
+  thisTask.className = "task-deleted"
   console.log(thisTask)
 }
 
@@ -114,7 +113,7 @@ const showAllTasks = (data) => {
             </div>
             <div class="delete-options">
               <div class="cancel delete-option"><span class="nix">x</span></div>
-              <div class="confirm delete-option"><img class="check" src="/checkmark.png"></div>
+              <div class="confirm delete-option"><span class="check"></span></div>
             </div>
           </li>`
     })
