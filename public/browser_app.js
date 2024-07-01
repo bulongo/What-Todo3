@@ -75,9 +75,13 @@ const editTask = (taskData) => {
 
 // DELETE SECTION
 const deleteTask = (task) => {
-  //task.className = "deleting-task"
   const thisTask = task.target.parentElement.parentElement
   thisTask.className = "deleting-task"
+  //first get all the tasks
+  //and then filter out the task that has been task-deleted
+  //return the new array of tasks
+  //display the remainders on the page
+  
 }
 
 const closeDelete = (task) => {
@@ -88,11 +92,19 @@ const closeDelete = (task) => {
   //console.log(thisTask)
 }
 
-const confirmDelete = (task) => {
+const confirmDelete = async (task) => {
   //task.className = "deleting-task"
   const thisTask = task.target.parentElement.parentElement.parentElement
+  const id = thisTask.dataset.id
+  await axios.delete(`/api/v1/tasks/${id}`)
+  //allTasks.data.tasks.forEach((task) => {
+  //  if(task)
+  //})
+  //
+  console.log(thisTask.dataset)
   thisTask.className = "task-deleted"
-  console.log(thisTask)
+  getData()
+  //console.log(thisTask)
 }
 
 // this little part here makes it so that when user creates new task
@@ -104,20 +116,20 @@ const showAllTasks = (data) => {
   let allTasks = []
   data.forEach((task) => {
     allTasks = data.map((task) => {
-      return `<li class="task-closed">
+      return `<li class="task-closed" data-id="${task._id}">
             <span class="checkbox-unselected"></span>
             <h2 class="task-heading">${task.title}</h2>
             <div class="options">
-              <img class="icon edit" src="/edit.png">
-              <img class="icon delete" src="/delete.png">
+              <img class="icon edit" src="/edit.png"></a>
+              <img class="icon delete" src="/delete.png" >
             </div>
             <div class="delete-options">
               <div class="cancel delete-option"><span class="nix">x</span></div>
               <div class="confirm delete-option"><span class="check"></span></div>
             </div>
           </li>`
-    })
-  }
+      })
+    }
   )
 
   ul.innerHTML = allTasks.join(" ")
@@ -175,6 +187,8 @@ const formState = (e) => {
 
 addTaskBtn.addEventListener("click", formState)
 
+// CREATE TASK SECTION
+
 const createTask = async (e) => {
   e.preventDefault()
   const taskTitle = addTaskForm[0].value
@@ -216,7 +230,6 @@ const createTask = async (e) => {
 
 createTaskBtn.addEventListener("click", (e) => createTask(e))
 
-
 //editBtn.addEventListener("click",editTask("Something here"))
 
 // CLOSE THE FORM IF ANY OTHER ITEM OUTSIDE OF IT CLOSES THE FORM
@@ -236,18 +249,23 @@ search.addEventListener("click",closeForm)
 footer.addEventListener("click",closeForm)
 
 
-// THE SEARCH SECTION
-// taskTitleInput.addEventListener("input", (e) => {
-//   if (e.target.value.length >= 35) {
-//     // console.log("yeah we are at 10 now")
-//     console.log(e.target.value.length)
-//     e.target.disabled = true
-//   }
-// })
-//
-// window.addEventListener("keydown", (e) => {
-//   if (e.key === "Backspace") {
-//
-//     taskTitleInput.disabled = false
-//   }
-// })
+ //THE SEARCH SECTION
+ search.addEventListener("input", (e) => {
+   if(numberOfTasks.innerText == 0){
+     //alert("You have no tasks")
+     console.log("You have no tasks")
+     // make it search the recycle bin too
+   }
+   //if (e.target.value.length >= 35) {
+   //  // console.log("yeah we are at 10 now")
+   //  console.log(e.target.value.length)
+   //  e.target.disabled = true
+   //}
+  //console.log(numberOfTasks)
+ })
+
+ //window.addEventListener("keydown", (e) => {
+ //  if (e.key === "Backspace") {
+ //    taskTitleInput.disabled = false
+ //  }
+ //})

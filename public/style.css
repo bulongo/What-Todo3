@@ -242,7 +242,7 @@ body {
 .icon {
   /*background: purple;*/
   filter: invert(90%);
-  width: 1.1rem;
+  width: 1.2rem;
   margin-right: .5rem;
   cursor: pointer;
   transition: 0.1s ease;
@@ -320,7 +320,7 @@ body {
   content: "";
   position: absolute;
   width: 15%;  
-  height: 30%; 
+  height: 25%; 
   border: none;
   border-bottom: solid black 1px;
   border-right: solid black 1px;
