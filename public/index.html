@@ -26,7 +26,7 @@
     </header>
 
     <form class="search">
-      <input type="search" class="search-bar" name="seach" value="" placeholder="Search for task">
+      <input type="search" class="search-bar" name="seach" autocomplete="off" value="" placeholder="Search for task">
     <!-- No need for a button because the form will search as I type. -->
       <div type="button" class="search-icon-container">
         <span class="search-icon"></span>
@@ -76,6 +76,10 @@
     </div>
     <footer class="footer">
 <!-- No AI was harmed in the making of this app. -->
+    <div class="total-tasks">
+      <div class="completed">completed: <span>50</span></div>
+      <div class="deleted">deleted: <span>80</span></div>
+    </div>
     </footer>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

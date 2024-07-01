@@ -3,6 +3,7 @@
 // start working on the add task button and pop up
 // make the app such that even if it isn't able to connect to the mongodb server
 // so that it still has the other last saved tasks in local storage
+// add a total number of todos deleted and completed
 
 const header = document.querySelector(".header")
 const search = document.querySelector(".search")
@@ -74,18 +75,12 @@ const editTask = (taskData) => {
 }
 
 // DELETE SECTION
-const deleteTask = (task) => {
+const deletingTask = (task) => {
   const thisTask = task.target.parentElement.parentElement
   thisTask.className = "deleting-task"
-  //first get all the tasks
-  //and then filter out the task that has been task-deleted
-  //return the new array of tasks
-  //display the remainders on the page
-  
 }
 
 const closeDelete = (task) => {
-  //task.className = "deleting-task"
   //this below is to get the <li> element
   const thisTask = task.target.parentElement.parentElement.parentElement
   thisTask.className = "task-closed"
@@ -93,15 +88,9 @@ const closeDelete = (task) => {
 }
 
 const confirmDelete = async (task) => {
-  //task.className = "deleting-task"
   const thisTask = task.target.parentElement.parentElement.parentElement
   const id = thisTask.dataset.id
   await axios.delete(`/api/v1/tasks/${id}`)
-  //allTasks.data.tasks.forEach((task) => {
-  //  if(task)
-  //})
-  //
-  console.log(thisTask.dataset)
   thisTask.className = "task-deleted"
   getData()
   //console.log(thisTask)
@@ -112,6 +101,7 @@ const confirmDelete = async (task) => {
 // it works like a react and next component.
 // <div>${task.details}</div>
 
+ //You cannot call showAllTasks directly, use getData() instead
 const showAllTasks = (data) => {
   let allTasks = []
   data.forEach((task) => {
@@ -137,7 +127,7 @@ const showAllTasks = (data) => {
   const deleteBtns = document.querySelectorAll(".delete")
   deleteBtns.forEach((deleteBtn) => {
     deleteBtn.addEventListener("click",(e) => {
-      deleteTask(e)
+      deletingTask(e)
     })
   });
 
@@ -251,15 +241,25 @@ footer.addEventListener("click",closeForm)
 
  //THE SEARCH SECTION
  search.addEventListener("input", (e) => {
-   if(numberOfTasks.innerText == 0){
+   if(numberOfTasks.innerText === String(0)){
      //alert("You have no tasks")
-     console.log("You have no tasks")
+     search[0].value = ""
+     ul.innerText = "You have no tasks right now"
+     e.target.disabled = true
+     setTimeout(() => {
+       ul.innerText = ""
+       e.target.disabled = false
+     }, 3000);
+     //console.log("You have no tasks")
      // make it search the recycle bin too
+   } else {
+     let sentence = search[0].value
+     //console.log(sentence)
    }
+
    //if (e.target.value.length >= 35) {
    //  // console.log("yeah we are at 10 now")
    //  console.log(e.target.value.length)
-   //  e.target.disabled = true
    //}
   //console.log(numberOfTasks)
  })
