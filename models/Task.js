@@ -16,6 +16,10 @@ const TaskSchema = new mongoose.Schema({
     // other states include pending and complete.
     default: "incomplete"
   },
+  completed: {
+    type: Boolean,
+    default: false
+  },
   targetDate: {
     type: Date,
     // add the ability a user to type today in input and then it gets the days date.

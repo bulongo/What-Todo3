@@ -8,8 +8,11 @@ It's funny I have a todo list to help me make my todo app.
   the browser_app.js.
 - Make the fucking dates in the tasks themselves work. 
 - Finish off the delete and edit buttons in the tasks
-- Make complete tasks go to the complete tasks page so we can use that to show growth and streaks so as to turn it into a game.
+- Make complete tasks go to the complete tasks page so we can use that to show growth and 
+  streaks so as to turn it into a game.
 - Reward user somehow.
 - Start working with forks so as to gain recognition.
 - Send deleted tasks to recycle bin and delete permanently after a while.
--
+- make sure that you save all the tasks to local storage so that incase there is a network 
+  problem the app will still work from what is save and refresh if there is a difference 
+  incase there is a difference in info between the local storage and the database.

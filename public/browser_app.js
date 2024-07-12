@@ -21,14 +21,26 @@ const numberOfTasks = document.querySelector(".number-of-tasks")
 const myData = []
 let dayTaskCreated;
 
+//------------------------- GETTING DATA SECTION ---------------------- //
+
+
 const getData = async (arg) => {
+  // this should first check local storage so we can cache the tasks
+  // and then check in the dabase if there is a difference between the
+  // files there and on local storage. If there is a difference, the app should then reload
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
+  console.log(res)
   showAllTasks(res.data.tasks)
   numberOfTasks.innerText = res.data.tasks.length
 }
 
 getData()
+
+//------------------------- END OF GETTING DATA SECTION ---------------------- //
+
+
+//------------------------- END OF TIME SECTION ---------------------- //
 
 const getDateTime = () => {
   const day = new Date()
@@ -60,21 +72,68 @@ const timeInterval = setInterval(() => {
 // run below code if app is exited
 // clearInterval(timeInterval)
 
-const handleCheckBoxClick = (e) => {
+//------------------------- END OF TIME SECTION ---------------------- //
+
+
+
+//------------------------- CHECKBOX SECTION ---------------------- //
+
+
+const handleCheckBoxClick = async (e) => {
   if (e.target.className === "checkbox-unselected") {
     e.target.className = "checkbox-selected"
+    const task = e.target.parentElement
+    // get the element using its state.
+    // mark it as complete
+    const data = await axios.get("/api/v1/tasks")
+    //console.log(task.dataset.id)
+    data.data.tasks.map((data) => {
+      if(data._id === task.dataset.id){
+        data.completed = true
+      }
+    })
+    const res = await axios.get(`/api/v1/tasks/${task.dataset.id}`)
+    console.log(res)
+    // we need to update the database after changing the data
+    //data.data.tasks.foreach((taskData) => {
+    //  if(taskData._id = task.id){
+    //    console.log('here we go')
+    //  }
+    //console.log(data)
+    //})
   } else if (e.target.className === "checkbox-selected") {
     e.target.className = "checkbox-unselected"
   }
 }
 
-// EDIT SECTION
+//------------------------- END CHECKBOX SECTION ---------------------- //
+
+
+//------------------------- EDIT SECTION ---------------------- //
+
 
 const editTask = (taskData) => {
+  // Get the taaskID of task selected.
+  // grab text from the task selected.
+  // open a modal type widget to get the to type into.
+  // add task text to the modals input.
+  // put cursor at end of text.
+  // if saved, update database.
+  // go back to main page.
+  // show pop up to confirm task has been edited.
+  // Go saw my foot off.
+  
   console.log(taskData)
 }
 
-// DELETE SECTION
+//------------------------- END OF EDIT SECTION ---------------------- //
+
+
+//------------------------- DELETE SECTION ---------------------- //
+//
+// BUG DETECTED: USER CANNOT DELETE A TASK IF THEY ARE OFFLINE. FIX WITH IF STATEMENT TO SEE IF THERE IS STILL A CONNECTION AND TO INFORM USER THAT THE NETWORK HAS BEEN DROPPED.
+// 
+//
 const deletingTask = (task) => {
   const thisTask = task.target.parentElement.parentElement
   thisTask.className = "deleting-task"
@@ -95,6 +154,11 @@ const confirmDelete = async (task) => {
   getData()
   //console.log(thisTask)
 }
+
+//------------------------- END DELETE SECTION ---------------------- //
+
+
+//------------------------- SHOWING DATA SECTION ---------------------- //
 
 // this little part here makes it so that when user creates new task
 // the task immediately shows up on the home screen without needing a reload
@@ -161,6 +225,9 @@ const showAllTasks = (data) => {
   })
 }
 
+//------------------------- END OF SHOWING DATA SECTION ---------------------- //
+
+//------------------------- FORM SECTION ---------------------- //
 
 const formState = (e) => {
   if (addTaskForm.className === "add-task-form_active") {
@@ -238,16 +305,24 @@ header.addEventListener("click",closeForm)
 search.addEventListener("click",closeForm)
 footer.addEventListener("click",closeForm)
 
+//------------------------- END OF FORM SECTION ---------------------- //
 
- //THE SEARCH SECTION
+
+//------------------------- SEARCH SECTION ---------------------- //
+
  search.addEventListener("input", (e) => {
+   //Below function just makes sure that the user cannot type anything if there are 
+   //absolutely no tasks. It will give a pop up that tells that that.
    if(numberOfTasks.innerText === String(0)){
      //alert("You have no tasks")
      search[0].value = ""
-     ul.innerText = "You have no tasks right now"
+     const div = document.createElement("div")
+     div.innerText = "You have no tasks right now."
+     div.className = "no-tasks"
+     ul.append(div)
      e.target.disabled = true
      setTimeout(() => {
-       ul.innerText = ""
+       ul.remove(div)
        e.target.disabled = false
      }, 3000);
      //console.log("You have no tasks")
@@ -269,3 +344,6 @@ footer.addEventListener("click",closeForm)
  //    taskTitleInput.disabled = false
  //  }
  //})
+
+//------------------------- END OF SEARCH SECTION ---------------------- //
+

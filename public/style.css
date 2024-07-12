@@ -158,6 +158,17 @@ body {
   position: relative;
 }
 
+.no-tasks {
+  border: solid var(--text-secondary-light) 1px;
+  background: var(--bg-backup);
+  color: #666;
+  font-size: 1.3rem;
+  padding: 1.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .task-closed {
   list-style: none;
   /*min-height: 7rem;*/
