@@ -6,3 +6,5 @@ This is the app that i was making to improve my knowledge of nodejs and express 
 2. Open terminal and change into the What-Todo folder.
 3. Type npm install.
 4. Type nodemon to start running app.
+5. Open your web browser if it does not automatically open to app.
+6. go to localhost:3001.
