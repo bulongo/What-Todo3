@@ -120,6 +120,18 @@ const editTask = async (e) => {
        //&& Array.from(task.classList.includes("task-closed"))){
       task.classList.remove("task-closed")
       task.classList.add("edit-task")
+      const closeBtn = document.createElement("button")
+      closeBtn.innerText = "X"
+      closeBtn.className = "closeBtn"
+      console.log(task.className)
+      closeBtn.addEventListener("click",() => {
+        if(task.className === "edit-task"){
+          closeBtn.className = "closeBtn-closed"
+          task.classList.remove("edit-task")
+          task.className = "task-closed"
+        }
+      })
+      task.append(closeBtn)
     }
   })
 

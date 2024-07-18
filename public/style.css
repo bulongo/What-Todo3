@@ -177,6 +177,7 @@ body {
    /*background: green; */
   margin-top: .9rem;
   /* border-radius: 10px; */
+  height: 4rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -230,14 +231,6 @@ body {
   padding-left: .3rem;
   transition: 0.5s ease;
   background: green;
-}
-
-.task-heading {
-  /*border: solid red 1px; */
-  font-size: 1rem;
-  width: 80%;
-  padding-left: .2rem;
-  padding-top: .2rem;
 }
 
 .options {
@@ -296,11 +289,11 @@ body {
   /*min-height: 7rem;*/
   border-bottom: solid var(--text-secondary-light) 1px;
   /*background: rgba(255,255,255,0.7);*/
-  background: green; 
+  /*background: green; */
   margin-top: .9rem;
   /* border-radius: 10px; */
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   cursor: pointer;
   transition: 0.6s ease;
   height: 10rem;
@@ -309,11 +302,34 @@ body {
   /*z-index: 100;*/
 }
 
+.closeBtn {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  right: 0;
+  border: none;
+  background: orangered;
+  color: white;
+  cursor: pointer;
+}
+
+.closeBtn-closed {
+  width: 0;
+  height: 0;
+  z-index: -200;
+  position: absolute;
+  right: 0;
+  border: none;
+  background: orangered;
+  color: white;
+  cursor: pointer;
+}
+
 .cancel {
   background-image: linear-gradient(to bottom right, #E21C34, #500B28);
   font-size: 1.4rem;
   width: 100%;
-  }
+}
 
 .cancel span {
   /*background: yellow;*/
@@ -433,6 +449,12 @@ body {
   text-transform: capitalize;
   display: flex;
   align-items: center;
+  /*border: solid red;*/
+  /*border: solid red 1px; */
+  font-size: 1rem;
+  width: 80%;
+  padding-left: .2rem;
+  padding-top: .2rem;
 }
 
 .task-place,
