@@ -127,6 +127,7 @@ const editTask = async (e) => {
       closeBtn.addEventListener("click",() => {
         if(task.className === "edit-task"){
           closeBtn.className = "closeBtn-closed"
+          closeBtn.innerText = ""
           task.classList.remove("edit-task")
           task.className = "task-closed"
         }

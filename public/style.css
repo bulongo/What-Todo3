@@ -302,6 +302,14 @@ body {
   /*z-index: 100;*/
 }
 
+.edit-task > .options {
+  display: none;
+}
+
+.edit-task > .task-heading {
+  font-weight: 200;
+}
+
 .closeBtn {
   position: absolute;
   height: 20px;
@@ -688,16 +696,17 @@ body {
 }
 
 .total-tasks {
-  /*background: green;*/
-  margin-left: 1rem;
-  width: 25%;
+  background: var(--text-secondary-light);
+  /*margin-left: 1rem;*/
+  width: 30%;
   font-size: .8rem;
+  padding: .3rem .3rem .3rem 0;
   /*height: 100%;*/
 }
 
 .total-tasks div {
   /*background: blue;*/
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
