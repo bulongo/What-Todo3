@@ -30,7 +30,6 @@ const getData = async (arg) => {
   // files there and on local storage. If there is a difference, the app should then reload
   const res = await axios.get("/api/v1/tasks")
   // const data = await res.json()
-  console.log(res)
   showAllTasks(res.data.tasks)
   numberOfTasks.innerText = res.data.tasks.length
 }
@@ -112,8 +111,21 @@ const handleCheckBoxClick = async (e) => {
 //------------------------- EDIT SECTION ---------------------- //
 
 
-const editTask = (taskData) => {
+const editTask = async (e) => {
   // Get the taaskID of task selected.
+  const task = e.target.parentElement.parentElement
+  const data = await axios.get("/api/v1/tasks")
+
+  data.data.tasks.map((data) => {
+    if(data._id === task.dataset.id && task.className === "task-closed"){
+       //&& Array.from(task.classList.includes("task-closed"))){
+      task.classList.remove("task-closed")
+      task.classList.add("edit-task")
+    }
+  })
+
+  console.log(task)
+
   // grab text from the task selected.
   // open a modal type widget to get the to type into.
   // add task text to the modals input.
@@ -123,7 +135,7 @@ const editTask = (taskData) => {
   // show pop up to confirm task has been edited.
   // Go saw my foot off.
   
-  console.log(taskData)
+  //console.log(task)
 }
 
 //------------------------- END OF EDIT SECTION ---------------------- //
@@ -212,8 +224,8 @@ const showAllTasks = (data) => {
   
   const editBtns = document.querySelectorAll(".edit")
   editBtns.forEach((editBtn) => {
-    editBtn.addEventListener("click",() => {
-      editTask(data)
+    editBtn.addEventListener("click",(e) => {
+      editTask(e)
     })
   })
 
