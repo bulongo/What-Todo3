@@ -23,7 +23,6 @@ let dayTaskCreated;
 
 //------------------------- GETTING DATA SECTION ---------------------- //
 
-
 const getData = async (arg) => {
   // this should first check local storage so we can cache the tasks
   // and then check in the dabase if there is a difference between the
