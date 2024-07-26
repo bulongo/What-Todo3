@@ -75,6 +75,44 @@ body {
   font-size: 1.2rem;
 }
 
+.menu {
+  /*border: solid red;*/
+  cursor: pointer;
+  margin-right: .5rem;
+  height: 2rem;
+  position: relative;
+  justify-content: center;
+  display: flex;
+}
+
+.menu-burger {
+  border: solid white 1px;
+  /*align-items: center;*/
+  width: 30px;
+  height: 1px;
+}
+
+.menu-burger::before,
+.menu-burger::after {
+  content:"";
+  position: absolute;
+  display: inline-block;
+  border: solid white 1px;
+  width: 28px;
+  /*height: 1px;*/
+}
+
+.menu-burger::before {
+  top: 10px;
+  /*background: green;*/
+}
+
+.menu-burger::after {
+  bottom: 10px;
+  /*background: green;*/
+}
+
+
 /* SEARCH SECTION */
 
 .search {
@@ -177,7 +215,7 @@ body {
    /*background: green; */
   margin-top: .9rem;
   /* border-radius: 10px; */
-  height: 4rem;
+  min-height: 4rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -192,13 +230,13 @@ body {
   /*min-height: 7rem;*/
   border-bottom: solid var(--text-secondary-light) 1px;
   background: var(--secondary-bg);
-  margin-top: .9rem;
+  margin-top: 1rem;
   /* border-radius: 10px; */
   display: flex;
   align-items: center;
   cursor: pointer;
   transition: 0.6s ease;
-  padding: 1.5rem .5rem;
+  padding: 1.55rem .5rem;
   position: relative;
   transform: translateX(-130px);
 }
@@ -240,6 +278,10 @@ body {
   width: 13%;
   display: flex;
   align-items: center;
+  transform: translateX(0);
+  opacity: 1;
+  transition: 0.6s ease;
+
   /*justify-content: space-around;*/
 }
 
@@ -262,7 +304,7 @@ body {
   /*border: solid green;*/
   width: 35%;
   right: 0;
-  height: 100%;
+  height: 93%;
   position: absolute;
   display: none;
   z-index: -10;
@@ -270,7 +312,7 @@ body {
 
 .delete-option {
   width: 100%;
-  height: 99%;
+  /*height: 99%;*/
   display: flex;
   font-size: 1.8rem;
   align-items: center;
@@ -286,28 +328,32 @@ body {
 
 .edit-task {
   list-style: none;
-  /*min-height: 7rem;*/
   border-bottom: solid var(--text-secondary-light) 1px;
-  /*background: rgba(255,255,255,0.7);*/
-  /*background: green; */
   margin-top: .9rem;
-  /* border-radius: 10px; */
   display: flex;
-  /*align-items: center;*/
   cursor: pointer;
   transition: 0.6s ease;
-  height: 10rem;
-  /*padding: 1.5rem .5rem;*/
+  min-height: 10rem;
   position: relative;
-  /*z-index: 100;*/
+  /*box-shadow: rgba(247, 69, 0, 0.56) 0px 22px 70px 4px;*/
+  /*border: solid orangered 1px;*/
 }
 
 .edit-task > .options {
-  display: none;
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: 0.6s ease;
 }
 
 .edit-task > .task-heading {
   font-weight: 200;
+  transition: 0.6s ease;
+}
+
+.edit-task > .checkbox-unselected {
+  transform: translateX(200px);
+  opacity: 0;
+  transition: 0.5s ease;
 }
 
 .closeBtn {
@@ -319,18 +365,16 @@ body {
   background: orangered;
   color: white;
   cursor: pointer;
+  transition: 0.6s ease;
+  z-index: 1;
 }
 
 .closeBtn-closed {
-  width: 0;
-  height: 0;
-  z-index: -200;
+  /*z-index: -200;*/
   position: absolute;
   right: 0;
   border: none;
-  background: orangered;
-  color: white;
-  cursor: pointer;
+  transition: 0.6s ease;
 }
 
 .cancel {
